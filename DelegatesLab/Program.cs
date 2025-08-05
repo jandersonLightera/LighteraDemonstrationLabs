@@ -6,11 +6,11 @@ namespace DelegatesLab
     {
         static void Main(string[] args)
         {
-            DelegateConsumer delegateConsumer = new DelegateConsumer(false);
+            DelegateExamples delegateConsumer = new DelegateExamples(false);
         }
     }
 
-    internal class DelegateConsumer
+    internal class DelegateExamples
     {
         // Formal Delegate Definitions: 
         public delegate void GreetingsDelegate(string name);
@@ -27,7 +27,7 @@ namespace DelegatesLab
         // The new shorthand: "Predicate" for delegates that take some parameters and return a boolean!
         Predicate<string> IsStringJames;
 
-        public DelegateConsumer(bool condition)
+        public DelegateExamples(bool condition)
         {
             // Example of declaring as invoking the original delegate-syntax
             GreetingsDelegate greetingsDelegate = Greetings;
@@ -59,7 +59,7 @@ namespace DelegatesLab
             }
             else
             {
-                GreetingsAction = CallYouANerd;
+                GreetingsAction = _callYouANerd;
             }
 
             GreetingsAction.Invoke("James");
@@ -95,9 +95,9 @@ namespace DelegatesLab
             return $"Farewell, BIGDAWG {name}!\n";
         }
 
-        private Action<string> CallYouANerd = (name) => Console.WriteLine($"Hello, {name} you Nerd!\n");
+        private Action<string> _callYouANerd = (name) => Console.WriteLine($"Hello, {name} you are a nerd!\n");
 
-        Func<string, string> CallYouANerdFunc = (name) => { return $"You are a nerd {name}"; };
+        private Func<string, string> _callYouANerdFunc = (name) => { return $"You are a nerd {name}"; };
     }
 
 }
