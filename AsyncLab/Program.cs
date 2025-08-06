@@ -34,8 +34,8 @@ namespace ConsoleLab
             {
                 Thread.CurrentThread.Name = "ExplicitTasks";
 
-                Task<string> TimeWasterInstance1 = new Task<string>(SimpleFunctions.TimeWaster3);
-                Task<string> TimeWasterInstance2 = new Task<string>(SimpleFunctions.TimeWaster4);
+                Task<string> TimeWasterInstance1 = new Task<string>(SimpleFunctions.TimeWaster1);
+                Task<string> TimeWasterInstance2 = new Task<string>(SimpleFunctions.TimeWaster2);
 
                 TimeWasterInstance1.Start();
                 TimeWasterInstance2.Start();
@@ -63,8 +63,8 @@ namespace ConsoleLab
             {
                 Console.WriteLine($"ExecuteContinuingTasks: Creating Task1!\n");
 
-                Task<string> Task1 = new Task<string>(SimpleFunctions.TimeWaster3);
-                Task<string> Task2 = new Task<string>(SimpleFunctions.TimeWaster4);
+                Task<string> Task1 = new Task<string>(SimpleFunctions.TimeWaster1);
+                Task<string> Task2 = new Task<string>(SimpleFunctions.TimeWaster2);
 
                 Console.WriteLine($"ExecuteContinuingTasks: Assigning 'ContinueWith' Tasks!\n");
 
@@ -100,8 +100,8 @@ namespace ConsoleLab
                 Console.WriteLine($"ExecuteParallelTasksViaInvoke:Executing TimeWaster3 and TimeWaster4 in-parallel!\n");
 
                 Parallel.Invoke(
-                    () => SimpleFunctions.TimeWaster3(),
-                    () => SimpleFunctions.TimeWaster4()
+                    () => SimpleFunctions.TimeWaster1(),
+                    () => SimpleFunctions.TimeWaster2()
                 );
             }
 

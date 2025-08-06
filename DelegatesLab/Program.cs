@@ -1,9 +1,10 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using Utilities;
 
 namespace DelegatesLab
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             DelegateExamples delegateConsumer = new DelegateExamples(false);
@@ -12,6 +13,8 @@ namespace DelegatesLab
 
     internal class DelegateExamples
     {
+        public string Name { get; set; } = "Your Name Here";
+
         // Formal Delegate Definitions: 
         public delegate void GreetingsDelegate(string name);
         public delegate void GoodbyeDelegate(string name);
@@ -25,79 +28,61 @@ namespace DelegatesLab
         Action<string> GoodbyeAction;
 
         // The new shorthand: "Predicate" for delegates that take some parameters and return a boolean!
-        Predicate<string> IsStringJames;
+        Predicate<string> IsStringYourName;
 
-        public DelegateExamples(bool condition)
+        public DelegateExamples(bool trivialBoolean)
         {
+            
             // Example of declaring as invoking the original delegate-syntax
-            GreetingsDelegate greetingsDelegate = Greetings;
-            GoodbyeDelegate goodbyeDelegate = Goodbye;
+            GreetingsDelegate greetingsDelegate = SimpleFunctions.Greetings;
+            GoodbyeDelegate goodbyeDelegate = SimpleFunctions.Goodbye;
 
-            greetingsDelegate.Invoke("James");
-            goodbyeDelegate.Invoke("James");
+            // Assigning our Predicate delegate to a simple lambda expression
+            // that checks if the name provided equals the Name variable above.
+            IsStringYourName = (name) => name.Equals(Name);
+
+            // Example of invoking the original delegate-syntax
+            greetingsDelegate.Invoke(Name);
+            goodbyeDelegate.Invoke(Name);
 
 
             // Example of declaring as invoking the new Func syntax
-            StringReturnDelegate = FormalName;
-            Console.WriteLine(StringReturnDelegate.Invoke("James"));
+            StringReturnDelegate = SimpleFunctions.FormalName;
+            Console.WriteLine(StringReturnDelegate.Invoke(Name));
 
             // Example of declaring as invoking the new Action syntax
-            GreetingsAction = Greetings;
-            GoodbyeAction = Goodbye;
+            GreetingsAction = SimpleFunctions.Greetings;
+            GoodbyeAction = SimpleFunctions.Goodbye;
 
-            GreetingsAction.Invoke("James");
-            GoodbyeAction.Invoke("James");
+            // Invoking the newly-defined Action delegates
+            GreetingsAction.Invoke(Name);
+            GoodbyeAction.Invoke(Name);
 
             // Example of changing the assignment to the Func delegate
-            StringReturnDelegate = GreetTheBIGDAWG;
-            Console.WriteLine(StringReturnDelegate.Invoke("James"));
+            StringReturnDelegate = SimpleFunctions.GreetTheBIGDAWG;
 
-            // Example of changing the assignment to the Action delegate
-            if (condition)
+            // Invoking the newly-defined Func delegate and printing the value that is returned.
+            Console.WriteLine(StringReturnDelegate.Invoke(Name));
+
+            // Example of changing the assignment to the Action delegate,
+            // based off the trivial boolean condition we passed in.
+            if (trivialBoolean)
             {
-                GreetingsAction = Greetings;
+                GreetingsAction = SimpleFunctions.Greetings;
             }
             else
             {
-                GreetingsAction = _callYouANerd;
+                GreetingsAction = SimpleDelegates.CallYouAGoodFriendAction;
             }
 
-            GreetingsAction.Invoke("James");
+            GreetingsAction.Invoke(Name);
 
             // Example of defining a predicate delegate and invoking them
-            IsStringJames = (name) => name.Equals("James");
-            Console.WriteLine(IsStringJames.Invoke("James"));
-            Console.WriteLine(IsStringJames.Invoke("John"));
+            Console.WriteLine(IsStringYourName.Invoke(Name));
+            Console.WriteLine(IsStringYourName.Invoke("John"));
         }
 
-        private void Greetings(string name)
-        {
-            Console.WriteLine($"Hello {name}!\n");
-        }
 
-        private void Goodbye(string name)
-        {
-            Console.WriteLine($"Goodbye {name}!\n");
-        }
-
-        private string FormalName(string name)
-        {
-            return $"Mr. {name}\n";
-        }
-
-        private string GreetTheBIGDAWG(string name)
-        {
-            return $"Hello BIGDAWG {name}!\n";
-        }
-
-        private string FarewellToTheBIGDAWG(string name)
-        {
-            return $"Farewell, BIGDAWG {name}!\n";
-        }
-
-        private Action<string> _callYouANerd = (name) => Console.WriteLine($"Hello, {name} you are a nerd!\n");
-
-        private Func<string, string> _callYouANerdFunc = (name) => { return $"You are a nerd {name}"; };
     }
 
 }

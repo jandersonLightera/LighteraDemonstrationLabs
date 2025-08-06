@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncLab", "AsyncLab\AsyncL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelismLab", "ParallelismLab\ParallelismLab\ParallelismLab.csproj", "{79C5C9F7-4B1B-414F-9916-6376EB52BD0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{3EC0F000-2CF4-4186-9D6E-31F499DD2740}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{9BDDA232-6C93-4949-91D3-548D2807B07D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{79C5C9F7-4B1B-414F-9916-6376EB52BD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C5C9F7-4B1B-414F-9916-6376EB52BD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C5C9F7-4B1B-414F-9916-6376EB52BD0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EC0F000-2CF4-4186-9D6E-31F499DD2740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EC0F000-2CF4-4186-9D6E-31F499DD2740}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EC0F000-2CF4-4186-9D6E-31F499DD2740}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EC0F000-2CF4-4186-9D6E-31F499DD2740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDDA232-6C93-4949-91D3-548D2807B07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDDA232-6C93-4949-91D3-548D2807B07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDDA232-6C93-4949-91D3-548D2807B07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDDA232-6C93-4949-91D3-548D2807B07D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
