@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace ParallelismLab._2DRendering
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// A generic renderer control for 2D graphs.
     /// </summary>
     public partial class Simple2DRenderer : UserControl
     {
